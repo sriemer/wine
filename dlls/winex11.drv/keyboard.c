@@ -875,7 +875,434 @@ static const char main_key_NL[MAIN_LEN][4] =
  "[]"
 };
 
+ /* 0x00 .. 0x2F */
+#define VK2CHAR_COMMON_0 \
+ 0, 0, 0, 3, 0, 0, 0, 0, \
+ 8, 9, 0, 0, 0, 0x0D, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0x1B, 0, 0, 0, 0, \
+ ' ', 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0
 
+/* 0x3A .. 0x6D */
+#define VK2CHAR_COMMON_1 \
+ 0, 0, 0, 0, 0, 0, \
+ 0, 'A', 'B', 'C', 'D', 'E', 'F', 'G', \
+ 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', \
+ 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', \
+ 'X', 'Y', 'Z', 0, 0, 0, 0, 0, \
+ '0', '1', '2', '3', '4', '5', '6', '7', \
+ '8', '9', '*', '+', 0, '-'
+
+/* 0x6F .. 0xB9 */
+#define VK2CHAR_COMMON_2 \
+ '/', \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0
+
+/* 0xC3 .. 0xDA */
+#define VK2CHAR_COMMON_3 \
+ 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0
+
+/* 0xE0 .. 0xE1*/
+#define VK2CHAR_COMMON_4 \
+ 0, 0
+
+/* 0xE3 .. 0xFE */
+#define VK2CHAR_COMMON_5 \
+ 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0, 0, \
+ 0, 0, 0, 0, 0, 0, 0
+
+/*** MAPVK_VK_TO_CHAR maps ***/
+#define vk2char_JA vk2char_US
+static const UCHAR vk2char_US[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x3B, 0x3D, 0x2C, 0x2D, 0x2E, 0x2F,
+ 0x60, 0, 0, VK2CHAR_COMMON_3,
+ 0x5B, 0x5C, 0x5D, 0x27, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_UK[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x3B, 0x3D, 0x2C, 0x2D, 0x2E, 0x2F,
+ 0x27, 0, 0, VK2CHAR_COMMON_3,
+ 0x5B, 0x5C, 0x5D, 0x23, 0x60,
+ VK2CHAR_COMMON_4, 0, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_DE[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xFC, 0x2B, 0x2C, 0x2D, 0x2E, 0x23,
+ 0xF6, 0, 0, VK2CHAR_COMMON_3,
+ 0xDF, 0x5E, 0xB4, 0xE4, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0x5E
+};
+
+static const UCHAR vk2char_SG[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0xFC, 0, 0x2C, 0x2D, 0x2E, 0xA7,
+ 0xA8, 0, 0, VK2CHAR_COMMON_3,
+ 0x27, 0xE4, 0x5E, 0xF6, 0x24,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_SF[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0xE8, 0, 0x2C, 0x2D, 0x2E, 0xA7,
+ 0xA8, 0, 0, VK2CHAR_COMMON_3,
+ 0x27, 0xE0, 0x5E, 0xE9, 0x24,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+#define vk2char_FI vk2char_SE
+static const UCHAR vk2char_SE[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xA8, 0x2B, 0x2C, 0x2D, 0x2E, 0x27,
+ 0xF6, 0, 0, VK2CHAR_COMMON_3,
+ 0xB4, 0xA7, 0xE5, 0xE4, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0xA8
+};
+
+static const UCHAR vk2char_ET[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xF6, 0xB4, 0x2C, 0x2B, 0x2E, 0xE4,
+ 0xFC, 0, 0, VK2CHAR_COMMON_3,
+ 0xF5, 0x27, 0x2D, 0x3F, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0x3F
+};
+
+static const UCHAR vk2char_NO[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xA8, 0x2B, 0x2C, 0x2D, 0x2E, 0x27,
+ 0xF8, 0, 0, VK2CHAR_COMMON_3,
+ 0x5C, 0x7C, 0xE5, 0xE6, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_DA[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xA8, 0x2B, 0x2C, 0x2D, 0x2E, 0x27,
+ 0xE6, 0, 0, VK2CHAR_COMMON_3,
+ 0xB4, 0xBD, 0xE5, 0xF8, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0xB4
+};
+
+static const UCHAR vk2char_FR[256] =
+{
+ VK2CHAR_COMMON_0,
+ 0xE0, 0x26, 0xE9, 0x22, 0x27, 0x28, 0x2D, 0xE8,
+ 0x5F, 0xE7, VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x24, 0x3D, 0x2C, 0, 0x3B, 0x3A,
+ 0xF9, 0, 0, VK2CHAR_COMMON_3,
+ 0x29, 0x2A, 0x5E, 0xB2, 0x21,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0x5E
+};
+
+static const UCHAR vk2char_CF[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x3B, 0x3D, 0x2C, 0x2D, 0x2E, 0xE9,
+ 0xE8, 0, 0, VK2CHAR_COMMON_3,
+ 0x5E, 0xE0, 0xE7, 0xB0, 0,
+ VK2CHAR_COMMON_4, 0xF9, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_BE[256] =
+{
+ VK2CHAR_COMMON_0,
+ 0xE0, 0x26, 0xE9, 0x22, 0x27, 0x28, 0xA7, 0xE8,
+ 0x21, 0xE7, VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x24, 0x3D, 0x2C, 0x2D, 0x3B, 0x3A,
+ 0xF9, 0, 0, VK2CHAR_COMMON_3,
+ 0x29, 0xB5, 0x5E, 0xB2, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0x5E
+};
+
+static const UCHAR vk2char_PT[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0xB4, 0x2B, 0x2C, 0x2D, 0x2E, 0x7E,
+ 0xE7, 0, 0, VK2CHAR_COMMON_3,
+ 0x27, 0x5C, 0xAB, 0xBA, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_PT_br[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xE7, 0x3D, 0x2C, 0x2D, 0x2E, 0x3B,
+ 0x27, 0x2F, 0x2E, VK2CHAR_COMMON_3,
+ 0xB4, 0x5D, 0x5B, 0x7E, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_BG[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x3F, 0, 0x2C, 0x2D, 0x2E, 0x3F,
+ 0x60, 0, 0, VK2CHAR_COMMON_3,
+ 0x3F, 0x28, 0x3B, 0x3F, 0x3F,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_BY[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x3F, 0x3D, 0x3F, 0x2D, 0x3F, 0x2E,
+ 0x3F, 0, 0, VK2CHAR_COMMON_3,
+ 0x3F, 0x5C, 0x27, 0x3F, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_RU[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x3F, 0x3D, 0x3F, 0x2D, 0x3F, 0x2E,
+ 0x3F, 0, 0, VK2CHAR_COMMON_3,
+ 0x3F, 0x5C, 0x3F, 0x3F, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_UA[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x3F, 0x3D, 0x3F, 0x2D, 0x3F, 0x2E,
+ 0x3F, 0, 0, VK2CHAR_COMMON_3,
+ 0x3F, 0x5C, 0x3F, 0x3F, 0,
+ VK2CHAR_COMMON_4, 0x3F, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_ES[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x60, 0x2B, 0x2C, 0x2D, 0x2E, 0xE7,
+ 0xF1, 0, 0, VK2CHAR_COMMON_3,
+ 0x27, 0xBA, 0xA1, 0xB4, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_IT[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0xE8, 0x2B, 0x2C, 0x2D, 0x2E, 0xF9,
+ 0xF2, 0, 0, VK2CHAR_COMMON_3,
+ 0x27, 0x5C, 0xEC, 0xE0, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_IS[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x27, 0xF6, 0x2C, 0xFE, 0x2E, 0x2B,
+ 0xE6, 0, 0, VK2CHAR_COMMON_3,
+ 0x2D, 0xB0, 0xF0, 0xB4, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_HU[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xE9, 0xF3, 0x2C, 0x2D, 0x2E, 0xFC,
+ 0xF6, 0, 0, VK2CHAR_COMMON_3,
+ 0x6F, 0x75, 0xFA, 0xE1, 0,
+ VK2CHAR_COMMON_4, 0xED, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_PL[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x3B, 0x3D, 0x2C, 0x2D, 0x2E, 0x2F,
+ 0x60, 0, 0, VK2CHAR_COMMON_3,
+ 0x5B, 0x5C, 0x5D, 0x27, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+#define vk2char_HR vk2char_SI
+static const UCHAR vk2char_SI[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x63, 0x2B, 0x2C, 0x2D, 0x2E, 0x27,
+ 0xB8, 0, 0, VK2CHAR_COMMON_3,
+ 0x9A, 0x9E, 0x64, 0x63, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_SR[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0, VK2CHAR_COMMON_2,
+ 0x3F, 0x2B, 0x2C, 0x27, 0x2E, 0x2D,
+ 0x60, 0, 0, VK2CHAR_COMMON_3,
+ 0x3F, 0x3F, 0x3F, 0x3F, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0x27
+};
+
+static const UCHAR vk2char_SK[256] =
+{
+ VK2CHAR_COMMON_0,
+ 0xE9, 0x2B, 0x6C, 0x9A, 0x63, 0x74, 0x9E, 0xFD,
+ 0xE1, 0xED, VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0xF4, 0, 0x2C, 0x2D, 0x2E, 0x3D,
+ 0x3B, 0, 0, VK2CHAR_COMMON_3,
+ 0xFA, 0x6E, 0xE4, 0xA7, 0xB4,
+ VK2CHAR_COMMON_4, 0x26, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_CS[256] =
+{
+ VK2CHAR_COMMON_0,
+ 0xE9, 0x2B, 0x65, 0x9A, 0x63, 0x72, 0x9E, 0xFD,
+ 0xE1, 0xED, VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x75, 0x3D, 0x2C, 0x2D, 0x2E, 0xB4,
+ 0x3B, 0, 0, VK2CHAR_COMMON_3,
+ 0xFA, 0xA8, 0x29, 0xA7, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0x8A
+};
+
+static const UCHAR vk2char_LA[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x60, 0x2B, 0x2C, 0x2D, 0x2E, 0xE7,
+ 0xF1, 0, 0, VK2CHAR_COMMON_3,
+ 0x27, 0xBA, 0xA1, 0xB4, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_LT[256] =
+{
+ VK2CHAR_COMMON_0,
+ 0x29, 0x21, 0x22, 0x2F, 0x3B, 0x3A, 0x2C, 0x2E,
+ 0x3F, 0x28, VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x75, 0x2B, 0x63, 0x5F, 0x9A, 0x65,
+ 0x60, 0, 0, VK2CHAR_COMMON_3,
+ 0x69, 0x7C, 0x93, 0x65, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_TK[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x73, 0, 0x2C, 0x2D, 0x2E, 0xF6,
+ 0x22, 0, 0, VK2CHAR_COMMON_3,
+ 0x67, 0xE7, 0xFC, 0x69, 0x2A,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_IL[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x3F, 0x3D, 0x3F, 0x2D, 0x3F, 0x2E,
+ 0x3B, 0, 0, VK2CHAR_COMMON_3,
+ 0x5D, 0x5C, 0x5B, 0x2C, 0,
+ VK2CHAR_COMMON_4, 0x5C, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_EL[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x3F, 0x3D, 0x2C, 0x2D, 0x2E, 0x2F,
+ 0x60, 0, 0, VK2CHAR_COMMON_3,
+ 0x5B, 0x5C, 0x5D, 0x27, 0,
+ VK2CHAR_COMMON_4, 0x3C, VK2CHAR_COMMON_5, 0x3F
+};
+
+static const UCHAR vk2char_th[256] =
+{
+ VK2CHAR_COMMON_0,
+ 0x3F, 0x3F, 0x2F, 0x2D, 0x3F, 0x3F, 0x3F, 0x3F,
+ 0x3F, 0x3F, VK2CHAR_COMMON_1, 0x2E, VK2CHAR_COMMON_2,
+ 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F,
+ 0x5F, 0, 0, VK2CHAR_COMMON_3,
+ 0x3F, 0x3F, 0x3F, 0x3F, 0,
+ VK2CHAR_COMMON_4, 0x3F, VK2CHAR_COMMON_5, 0
+};
+
+static const UCHAR vk2char_NL[256] =
+{
+ VK2CHAR_COMMON_0,
+ '0', '1', '2', '3', '4', '5', '6', '7',
+ '8', '9', VK2CHAR_COMMON_1, 0x2C, VK2CHAR_COMMON_2,
+ 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0xB0,
+ 0xB4, 0, 0, VK2CHAR_COMMON_3,
+ 0x2F, 0x3C, 0xA8, 0x40, 0,
+ VK2CHAR_COMMON_4, 0x5D, VK2CHAR_COMMON_5, 0
+};
 
 /*** Layout table. Add your keyboard mappings to this list */
 static const struct {
@@ -885,71 +1312,72 @@ static const struct {
     const char (*key)[MAIN_LEN][4];
     const WORD (*scan)[MAIN_LEN]; /* scan codes mapping */
     const WORD (*vkey)[MAIN_LEN]; /* virtual key codes mapping */
+    const UCHAR (*vk2char)[256];
 } main_key_tab[]={
- {0x0409, "United States keyboard layout", &main_key_US, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0409, "United States keyboard layout (phantom key version)", &main_key_US_phantom, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0409, "United States keyboard layout (dvorak)", &main_key_US_dvorak, &main_key_scan_dvorak, &main_key_vkey_dvorak},
- {0x0409, "United States International keyboard layout", &main_key_US_intl, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0809, "British keyboard layout", &main_key_UK, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0407, "German keyboard layout", &main_key_DE, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x0807, "Swiss German keyboard layout", &main_key_SG, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x100c, "Swiss French keyboard layout", &main_key_SF, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x041d, "Swedish keyboard layout", &main_key_SE, &main_key_scan_qwerty, &main_key_vkey_qwerty_v2},
- {0x0425, "Estonian keyboard layout", &main_key_ET, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0414, "Norwegian keyboard layout", &main_key_NO, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0406, "Danish keyboard layout", &main_key_DA, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040c, "French keyboard layout", &main_key_FR, &main_key_scan_qwerty, &main_key_vkey_azerty},
- {0x0c0c, "Canadian French keyboard layout", &main_key_CF, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0c0c, "Canadian French keyboard layout (CA_fr)", &main_key_CA_fr, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0c0c, "Canadian keyboard layout", &main_key_CA, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x080c, "Belgian keyboard layout", &main_key_BE, &main_key_scan_qwerty, &main_key_vkey_azerty},
- {0x0816, "Portuguese keyboard layout", &main_key_PT, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0416, "Brazilian ABNT-2 keyboard layout", &main_key_PT_br, &main_key_scan_abnt_qwerty, &main_key_vkey_abnt_qwerty},
- {0x0416, "Brazilian ABNT-2 keyboard layout ALT GR", &main_key_PT_br_alt_gr,&main_key_scan_abnt_qwerty, &main_key_vkey_abnt_qwerty},
- {0x040b, "Finnish keyboard layout", &main_key_FI, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0402, "Bulgarian bds keyboard layout", &main_key_BG_bds, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0402, "Bulgarian phonetic keyboard layout", &main_key_BG_phonetic, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0423, "Belarusian keyboard layout", &main_key_BY, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0419, "Russian keyboard layout", &main_key_RU, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0419, "Russian keyboard layout (phantom key version)", &main_key_RU_phantom, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0419, "Russian keyboard layout KOI8-R", &main_key_RU_koi8r, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0419, "Russian keyboard layout cp1251", &main_key_RU_cp1251, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0419, "Russian phonetic keyboard layout", &main_key_RU_phonetic, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0422, "Ukrainian keyboard layout KOI8-U", &main_key_UA, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0422, "Ukrainian keyboard layout (standard)", &main_key_UA_std, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0419, "Russian keyboard layout (standard)", &main_key_RU_std, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040a, "Spanish keyboard layout", &main_key_ES, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0410, "Italian keyboard layout", &main_key_IT, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040f, "Icelandic keyboard layout", &main_key_IS, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040e, "Hungarian keyboard layout", &main_key_HU, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x0415, "Polish (programmer's) keyboard layout", &main_key_PL, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0424, "Slovenian keyboard layout", &main_key_SI, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x0c1a, "Serbian keyboard layout sr", &main_key_SR, &main_key_scan_qwerty, &main_key_vkey_qwerty}, /* LANG_SERBIAN,SUBLANG_SERBIAN_CYRILLIC */
- {0x0c1a, "Serbian keyboard layout us,sr", &main_key_US_SR, &main_key_scan_qwerty, &main_key_vkey_qwerty}, /* LANG_SERBIAN,SUBLANG_SERBIAN_CYRILLIC */
- {0x041a, "Croatian keyboard layout", &main_key_HR, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x041a, "Croatian keyboard layout (specific)", &main_key_HR_jelly, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0411, "Japanese 106 keyboard layout", &main_key_JA_jp106, &main_key_scan_qwerty_jp106, &main_key_vkey_qwerty_jp106},
- {0x0411, "Japanese Mac keyboard layout", &main_key_JA_macjp, &main_key_scan_qwerty_macjp, &main_key_vkey_qwerty_macjp},
- {0x0411, "Japanese pc98x1 keyboard layout", &main_key_JA_pc98x1, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x041b, "Slovak keyboard layout", &main_key_SK, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x041b, "Slovak and Czech keyboard layout without dead keys", &main_key_SK_prog, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0405, "Czech keyboard layout", &main_key_CS, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0405, "Czech keyboard layout cz", &main_key_CZ, &main_key_scan_qwerty, &main_key_vkey_qwertz},
- {0x0405, "Czech keyboard layout cz_qwerty", &main_key_CZ_qwerty, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040a, "Latin American keyboard layout", &main_key_LA, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0427, "Lithuanian (Baltic) keyboard layout", &main_key_LT_B, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x041f, "Turkish keyboard layout", &main_key_TK, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x041f, "Turkish keyboard layout tr", &main_key_TR, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x041f, "Turkish keyboard layout trf", &main_key_TR_F, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040d, "Israelian keyboard layout", &main_key_IL, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040d, "Israelian phonetic keyboard layout", &main_key_IL_phonetic, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x040d, "Israelian Saharon keyboard layout", &main_key_IL_saharon, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0409, "VNC keyboard layout", &main_key_vnc, &main_key_scan_vnc, &main_key_vkey_vnc},
- {0x0408, "Greek keyboard layout", &main_key_EL, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x041e, "Thai (Kedmanee)  keyboard layout", &main_key_th, &main_key_scan_qwerty, &main_key_vkey_qwerty},
- {0x0413, "Dutch keyboard layout", &main_key_NL, &main_key_scan_qwerty, &main_key_vkey_qwerty},
+ {0x0409, "United States keyboard layout", &main_key_US, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_US},
+ {0x0409, "United States keyboard layout (phantom key version)", &main_key_US_phantom, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_US},
+ {0x0409, "United States keyboard layout (dvorak)", &main_key_US_dvorak, &main_key_scan_dvorak, &main_key_vkey_dvorak, &vk2char_US},
+ {0x0409, "United States International keyboard layout", &main_key_US_intl, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_US},
+ {0x0809, "British keyboard layout", &main_key_UK, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_UK},
+ {0x0407, "German keyboard layout", &main_key_DE, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_DE},
+ {0x0807, "Swiss German keyboard layout", &main_key_SG, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_SG},
+ {0x100c, "Swiss French keyboard layout", &main_key_SF, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_SF},
+ {0x041d, "Swedish keyboard layout", &main_key_SE, &main_key_scan_qwerty, &main_key_vkey_qwerty_v2, &vk2char_SE},
+ {0x0425, "Estonian keyboard layout", &main_key_ET, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_ET},
+ {0x0414, "Norwegian keyboard layout", &main_key_NO, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_NO},
+ {0x0406, "Danish keyboard layout", &main_key_DA, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_DA},
+ {0x040c, "French keyboard layout", &main_key_FR, &main_key_scan_qwerty, &main_key_vkey_azerty, &vk2char_FR},
+ {0x0c0c, "Canadian French keyboard layout", &main_key_CF, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_CF},
+ {0x0c0c, "Canadian French keyboard layout (CA_fr)", &main_key_CA_fr, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_CF},
+ {0x0c0c, "Canadian keyboard layout", &main_key_CA, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_CF},
+ {0x080c, "Belgian keyboard layout", &main_key_BE, &main_key_scan_qwerty, &main_key_vkey_azerty, &vk2char_BE},
+ {0x0816, "Portuguese keyboard layout", &main_key_PT, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_PT},
+ {0x0416, "Brazilian ABNT-2 keyboard layout", &main_key_PT_br, &main_key_scan_abnt_qwerty, &main_key_vkey_abnt_qwerty, &vk2char_PT_br},
+ {0x0416, "Brazilian ABNT-2 keyboard layout ALT GR", &main_key_PT_br_alt_gr,&main_key_scan_abnt_qwerty, &main_key_vkey_abnt_qwerty, &vk2char_PT_br},
+ {0x040b, "Finnish keyboard layout", &main_key_FI, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_FI},
+ {0x0402, "Bulgarian bds keyboard layout", &main_key_BG_bds, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_BG},
+ {0x0402, "Bulgarian phonetic keyboard layout", &main_key_BG_phonetic, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_BG},
+ {0x0423, "Belarusian keyboard layout", &main_key_BY, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_BY},
+ {0x0419, "Russian keyboard layout", &main_key_RU, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_RU},
+ {0x0419, "Russian keyboard layout (phantom key version)", &main_key_RU_phantom, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_RU},
+ {0x0419, "Russian keyboard layout KOI8-R", &main_key_RU_koi8r, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_RU},
+ {0x0419, "Russian keyboard layout cp1251", &main_key_RU_cp1251, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_RU},
+ {0x0419, "Russian phonetic keyboard layout", &main_key_RU_phonetic, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_RU},
+ {0x0422, "Ukrainian keyboard layout KOI8-U", &main_key_UA, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_UA},
+ {0x0422, "Ukrainian keyboard layout (standard)", &main_key_UA_std, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_UA},
+ {0x0419, "Russian keyboard layout (standard)", &main_key_RU_std, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_RU},
+ {0x040a, "Spanish keyboard layout", &main_key_ES, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_ES},
+ {0x0410, "Italian keyboard layout", &main_key_IT, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_IT},
+ {0x040f, "Icelandic keyboard layout", &main_key_IS, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_IS},
+ {0x040e, "Hungarian keyboard layout", &main_key_HU, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_HU},
+ {0x0415, "Polish (programmer's) keyboard layout", &main_key_PL, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_PL},
+ {0x0424, "Slovenian keyboard layout", &main_key_SI, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_SI},
+ {0x0c1a, "Serbian keyboard layout sr", &main_key_SR, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_SR}, /* LANG_SERBIAN,SUBLANG_SERBIAN_CYRILLIC */
+ {0x0c1a, "Serbian keyboard layout us,sr", &main_key_US_SR, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_SR}, /* LANG_SERBIAN,SUBLANG_SERBIAN_CYRILLIC */
+ {0x041a, "Croatian keyboard layout", &main_key_HR, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_HR},
+ {0x041a, "Croatian keyboard layout (specific)", &main_key_HR_jelly, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_HR},
+ {0x0411, "Japanese 106 keyboard layout", &main_key_JA_jp106, &main_key_scan_qwerty_jp106, &main_key_vkey_qwerty_jp106, &vk2char_JA},
+ {0x0411, "Japanese Mac keyboard layout", &main_key_JA_macjp, &main_key_scan_qwerty_macjp, &main_key_vkey_qwerty_macjp, &vk2char_JA},
+ {0x0411, "Japanese pc98x1 keyboard layout", &main_key_JA_pc98x1, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_JA},
+ {0x041b, "Slovak keyboard layout", &main_key_SK, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_SK},
+ {0x041b, "Slovak and Czech keyboard layout without dead keys", &main_key_SK_prog, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_SK},
+ {0x0405, "Czech keyboard layout", &main_key_CS, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_CS},
+ {0x0405, "Czech keyboard layout cz", &main_key_CZ, &main_key_scan_qwerty, &main_key_vkey_qwertz, &vk2char_CS},
+ {0x0405, "Czech keyboard layout cz_qwerty", &main_key_CZ_qwerty, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_CS},
+ {0x040a, "Latin American keyboard layout", &main_key_LA, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_LA},
+ {0x0427, "Lithuanian (Baltic) keyboard layout", &main_key_LT_B, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_LT},
+ {0x041f, "Turkish keyboard layout", &main_key_TK, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_TK},
+ {0x041f, "Turkish keyboard layout tr", &main_key_TR, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_TK},
+ {0x041f, "Turkish keyboard layout trf", &main_key_TR_F, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_TK},
+ {0x040d, "Israelian keyboard layout", &main_key_IL, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_IL},
+ {0x040d, "Israelian phonetic keyboard layout", &main_key_IL_phonetic, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_IL},
+ {0x040d, "Israelian Saharon keyboard layout", &main_key_IL_saharon, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_IL},
+ {0x0409, "VNC keyboard layout", &main_key_vnc, &main_key_scan_vnc, &main_key_vkey_vnc, &vk2char_US},
+ {0x0408, "Greek keyboard layout", &main_key_EL, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_EL},
+ {0x041e, "Thai (Kedmanee)  keyboard layout", &main_key_th, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_th},
+ {0x0413, "Dutch keyboard layout", &main_key_NL, &main_key_scan_qwerty, &main_key_vkey_qwerty, &vk2char_NL},
 
- {0, NULL, NULL, NULL, NULL} /* sentinel */
+ {0, NULL, NULL, NULL, NULL, NULL} /* sentinel */
 };
 static unsigned kbd_layout=0; /* index into above table of layouts */
 
@@ -2187,11 +2615,18 @@ UINT CDECL X11DRV_MapVirtualKeyEx(UINT wCode, UINT wMapType, HKL hkl)
 			KeySym keysym;
 			int keyc, len;
 			char s[10];
+                        const UCHAR (*lvk2char)[256];
 
 			e.display = display;
 			e.state = 0;
 			e.keycode = 0;
 			e.type = KeyPress;
+
+                        /* Try direct mapping first */
+                        if (main_key_tab[kbd_layout].vk2char != NULL) {
+                                lvk2char = main_key_tab[kbd_layout].vk2char;
+                                returnMVK((UINT) (*lvk2char)[wCode & 0xFF]);
+                        }
 
                         wine_tsx11_lock();
 
