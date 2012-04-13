@@ -555,6 +555,9 @@ static HRESULT WINAPI SysMouseWImpl_GetDeviceState(LPDIRECTINPUTDEVICE8W iface, 
 
     if(This->base.acquired == 0) return DIERR_NOTACQUIRED;
 
+    /* Make sure that key/mouse state is up to date */
+    GetInputState();
+
     TRACE("(this=%p,0x%08x,%p):\n", This, len, ptr);
     _dump_mouse_state(&This->m_state);
 
